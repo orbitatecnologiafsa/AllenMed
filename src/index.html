@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/index.css">
+    <link rel="shortcut icon" href="./img/allenbot_logo.png" type="image/x-icon">
+    <title>AllenMed</title>
+</head>
+<body>
+   
+    <section class="container" id="main">
+        <div class="login left">
+            <h1>Login</h1>
+            <form id="loginForm" action="/submit_form" class="form-login">
+                <div class="input-login">
+                    <div>
+                        <label for="email_login">Email:</label>
+                        <input type="email" name="email" id="email_login" placeholder="Digite seu email..." autocomplete="off">
+                    </div>
+                    <div>
+                        <label for="password_login">Senha:</label>
+                        <div class="input-password">
+                            <input type="password" name="password" id="password_login" placeholder="Digite sua senha..." autocomplete="off">
+                            <img src="./img/eye.png" id = "olhinhos-azuis" alt="" onclick="showPassword()">
+                        </div>
+                    </div>
+                    <p>Esqueceu a senha?</p>
+                </div>
+                <button type="submit" id="btn-login">Entrar</button>
+            </form>
+        </div>
+        <div class="top-bar">
+
+        </div>
+        <div class="sign-in right">
+            <h1>Seja bem-vindo ao <span>AllenMed!</span></h1>
+            <img src="./img/allenbot_logo.png" alt="">
+            <p id="text-mobile">O sistema de gerenciamento de consultas perfeito para você!</p>
+            <div class="buttons-mobile">
+                <button id="btn-sign-in">Cadastre-se</button>
+                <button id="btn-login2">Login</button>
+            </div>
+            <div class="bottom-bar">
+                
+            </div>
+        </div>     
+    </section>
+    <script type="module" src="./js/verificar_user.js"></script>
+    <script src="./js/index.js"></script>
+</body>
+</html>
