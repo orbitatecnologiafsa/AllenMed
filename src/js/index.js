@@ -6,11 +6,11 @@ function showPassword(){
 
     if(password.type === 'password'){
         password.type = 'text';
-        img_eye.src = './img/eye.png';
+        img_eye.src = '../src/img/eye.png';
     }
     else{
         password.type = 'password';
-        img_eye.src = './img/closed_eye.png';
+        img_eye.src = '../src/img/closed_eye.png';
     }
 }
 
