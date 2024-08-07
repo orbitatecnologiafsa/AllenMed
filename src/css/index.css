@@ -142,9 +142,6 @@ span{
 .right form{
     display: none;
 }
-#text-mobile{
-    display: none;
-}
 .buttons-mobile{
     display: none;
 }
@@ -195,12 +192,6 @@ span{
         height: 1px;
         background-color: white;
         margin-bottom: 10px;
-    }
-    #text-mobile{
-        display: block;
-        margin-top: 2%;
-        width: 80%;
-        text-align: center;
     }
     .top-bar{
         position: fixed;
