@@ -174,7 +174,7 @@ span{
     .buttons-mobile button{
         display: block;
         width: 60%;
-        height: 60px;
+        height: 65px;
         border: none;
         border-radius: 10px;
         background-color: white;
@@ -198,6 +198,9 @@ span{
     }
     #text-mobile{
         display: block;
+        margin-top: 2%;
+        width: 80%;
+        text-align: center;
     }
     .top-bar{
         position: fixed;
