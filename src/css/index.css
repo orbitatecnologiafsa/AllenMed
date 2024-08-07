@@ -145,11 +145,15 @@ span{
 .buttons-mobile{
     display: none;
 }
+#logo_mobile{
+    display: none;
+}
 @media screen and (max-width: 768px) {
     body{
         width: 100%;
     }
     #logo_mobile{
+        display: block;
         position: fixed;
         top: 10%; 
         width: 150px;
@@ -254,4 +258,12 @@ span{
     }
 }
 
-
+@media screen and (max-width: 400px) {
+    #logo_mobile{
+        width: 100px;
+    }
+    .left h1{
+        font-size: 1.5em;
+        margin-top: 1.5%;
+    }
+}
