@@ -1,0 +1,127 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #383535;
+    color: #fff;
+}
+
+header {
+    background-color: #ad1e10;
+    color: white;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+header img {
+    height: 40px;
+}
+
+.container {
+    margin: 20px;
+    background: #383535;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.container-header {
+    display: flex;
+    background-color: #ad1e10;
+    color: white;
+    padding: 10px;
+    justify-content: space-around;
+    align-items: center;
+    border-bottom: 2px solid #fff;
+}
+
+.container-header .icon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.container-header .icon:hover {
+    transform: scale(1.1);
+}
+
+.container-body {
+    display: none;
+    padding: 20px;
+    justify-content: space-between;
+    height: calc(100vh - 100px);
+}
+
+.content-section {
+    display: none;
+    flex: 1;
+    margin: 0 10px;
+}
+
+#qr_code_section {
+    text-align: center;
+}
+
+#qr_code_section button {
+    width: 80%;
+    padding: 15px;
+    background-color: #ad1e10;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-bottom: 10px;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+#qr_code_section button:hover {
+    background-color: #8e1a0d;
+}
+
+#qr_video {
+    width: 100%;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    display: none;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+ul li {
+    background: #fff;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    color: #383535;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    color: #ad1e10;
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 24px;
+}
+
+#close_qr_btn {
+    background-color: #ad1e10;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 20px;
+    cursor: pointer;
+    display: none;
+    transition: background-color 0.3s ease;
+}
+
+#close_qr_btn:hover {
+    background-color: #8e1a0d;
+}
