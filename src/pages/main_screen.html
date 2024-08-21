@@ -41,11 +41,56 @@
                     <button id="close_qr_btn">Fechar QR-Code</button>
                 </section>
                 <section id="active_tickets_section" class="content-section">
-                    <h2>Tickets Ativos</h2>
-                    <ul class="tickets"></ul>
+                    <label for="search-active-ticket">Pesquisar Ticket:</label>
+                    <input type="search" name="search" id="search-active-ticket">
+                    <ul class="tickets">
+                        <li class="ticket">
+                            <div class="ticket-header">
+                                <span class="ticket-id">ID: 123456789</span>
+                                <span class="ticket-status">Status: Ativo</span>
+                            </div>
+                            <div class="ticket-body">
+                                <p>Nome do Paciente:<span class="ticket-description">Julho Cesar</span></p>
+                                <p>Nome do visitante:<span class="ticket-description">Carlos Alberto</span></p>
+                                <p>Quarto:<span class="ticket-description">Quarto 1</span></p>
+                            </div>
+                            <div class="ticket-footer">
+                                <span class="ticket-creation-date">Data de Criação: 01/01/2023</span>
+                            </div>
+                        </li>
+                        <li class="ticket">
+                            <div class="ticket-header">
+                                <span class="ticket-id">ID: 123456789</span>
+                                <span class="ticket-status">Status: Ativo</span>
+                            </div>
+                            <div class="ticket-body">
+                                <p>Nome do Paciente:<span class="ticket-description">Julho Cesar</span></p>
+                                <p>Nome do visitante:<span class="ticket-description">Carlos Alberto</span></p>
+                                <p>Quarto:<span class="ticket-description">Quarto 1</span></p>
+                            </div>
+                            <div class="ticket-footer">
+                                <span class="ticket-creation-date">Data de Criação: 01/01/2023</span>
+                            </div>
+                        </li>
+                        <li class="ticket">
+                            <div class="ticket-header">
+                                <span class="ticket-id">ID: 123456789</span>
+                                <span class="ticket-status">Status: Ativo</span>
+                            </div>
+                            <div class="ticket-body">
+                                <p>Nome do Paciente:<span class="ticket-description">Julho Cesar</span></p>
+                                <p>Nome do visitante:<span class="ticket-description">Carlos Alberto</span></p>
+                                <p>Quarto:<span class="ticket-description">Quarto 1</span></p>
+                            </div>
+                            <div class="ticket-footer">
+                                <span class="ticket-creation-date">Data de Criação: 01/01/2023</span>
+                            </div>
+                        </li>
+                    </ul>
                 </section>
                 <section id="inactive_tickets_section" class="content-section">
-                    <h2>Tickets Inativos</h2>
+                    <label for="search-inactive-ticket">Pesquisar Ticket:</label>
+                    <input type="search" name="search" id="search-inactive-ticket">
                     <ul class="used-tickets"></ul>
                 </section>
             </div>

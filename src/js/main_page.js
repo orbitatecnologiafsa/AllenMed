@@ -22,16 +22,25 @@ document.addEventListener('DOMContentLoaded', function() {
     function initializeSections() {
         qrSectionBtn.addEventListener('click', () => {
             document.querySelector('.container-body').style.display = 'flex';
+            qrSectionBtn.setAttribute('class','icon active-session');
+            activeTicketsSectionBtn.setAttribute('class','icon');
+            inactiveTicketsSectionBtn.setAttribute('class','icon');
             showSection(qrCodeSection);
         });
 
         activeTicketsSectionBtn.addEventListener('click', () => {
             document.querySelector('.container-body').style.display = 'flex';
+            qrSectionBtn.setAttribute('class','icon');
+            activeTicketsSectionBtn.setAttribute('class','icon active-session');
+            inactiveTicketsSectionBtn.setAttribute('class','icon');
             showSection(activeTicketsSection);
         });
 
         inactiveTicketsSectionBtn.addEventListener('click', () => {
             document.querySelector('.container-body').style.display = 'flex';
+            qrSectionBtn.setAttribute('class','icon');
+            activeTicketsSectionBtn.setAttribute('class','icon');
+            inactiveTicketsSectionBtn.setAttribute('class','icon active-session');
             showSection(inactiveTicketsSection);
         });
     }
@@ -62,7 +71,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function loadActiveTickets() {
         const activeTickets = ['Ticket 1', 'Ticket 2', 'Ticket 3'];
-        ticketsList.innerHTML = '';
+        //ticketsList.innerHTML = '';
         activeTickets.forEach(ticket => {
             const li = document.createElement('li');
             li.textContent = ticket;
