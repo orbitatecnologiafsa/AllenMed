@@ -289,18 +289,6 @@ document.addEventListener('DOMContentLoaded', function() {
             const div_3 = document.createElement('div');
             div_3.setAttribute('class','ticket-footer');
     
-            const button_qr_code = document.createElement('button');
-            button_qr_code.setAttribute('class','qr-code-button');
-            button_qr_code.setAttribute('id','qr-code-btn');
-            button_qr_code.addEventListener('click', () => {
-                validateTicket(ticket);
-            });
-
-            const icon_for_btn = document.createElement('i');
-            icon_for_btn.setAttribute('class','fa-solid fa-qrcode');
-
-            button_qr_code.appendChild(icon_for_btn);
-
             const span_footer_date_start = document.createElement('span');
             span_footer_date_start.setAttribute('class','ticket-creation-date');
             span_footer_date_start.innerHTML = 'Data de criação: ' + ticket.data().data_emissao;
@@ -309,7 +297,6 @@ document.addEventListener('DOMContentLoaded', function() {
             span_footer_date_end.setAttribute('class','ticket-creation-date');
             span_footer_date_end.innerHTML = 'Data de baixa: ' + ticket.data().data_baixa;
     
-            div_3.appendChild(button_qr_code);
             div_3.appendChild(span_footer_date_start);
             div_3.appendChild(span_footer_date_end);
     
@@ -390,7 +377,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const ticketDoc = await ticketDb.doc(ticket.id).get();
             
             if (ticketDoc.exists) {
-                await ticketDb.doc(ticket.id).update({ status: 'Finalizado' });
+                await ticketDb.doc(ticket.id).update({ status: 'Finalizado',data_baixa: new Date().toLocaleDateString() });
                 console.log("Ticket atualizado com sucesso!");
             } else {
                 console.log("Documento não encontrado!");
