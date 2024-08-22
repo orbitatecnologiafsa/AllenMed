@@ -88,9 +88,6 @@ document.addEventListener('DOMContentLoaded', function() {
             span_p_body_1.setAttribute('class','ticket-description');
             span_p_body_1.innerHTML = ticket.data().paciente_pessoa;
             
-            const br = document.createElement('br'); // Para quebrar a linha D: 
-
-            p_body_1.appendChild(br);
             p_body_1.appendChild(span_p_body_1);
     
             const p_body_2 = document.createElement('p');
@@ -99,8 +96,6 @@ document.addEventListener('DOMContentLoaded', function() {
             span_p_body_2.setAttribute('class','ticket-description');
             span_p_body_2.innerHTML = ticket.data().nome_pessoa;
             
-            const br_2 = document.createElement('br');
-            p_body_2.appendChild(br_2);
             p_body_2.appendChild(span_p_body_2);
     
             const p_body_3 = document.createElement('p');
