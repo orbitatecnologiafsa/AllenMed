@@ -32,18 +32,23 @@
         </div>
         <div class="container-body">
             <section id="active_tickets_section" class="content-section">
-                <div class="search-div">
+                <form class="search-form" id="search-form">
                     <label for="search-active-ticket">Pesquisar Ticket:</label>
                     <input type="search" name="search" id="search-active-ticket">
-                </div>
-                <ul class="tickets">
+                </form>
+                <ul class="tickets" id="tickets-ativos-ul">
                     
                 </ul>
             </section>
             <section id="inactive_tickets_section" class="content-section">
-                <label for="search-inactive-ticket">Pesquisar Ticket:</label>
-                <input type="search" name="search" id="search-inactive-ticket">
-                <ul class="used-tickets"></ul>
+                <form class="search-form" id="search-form-inactive">
+                    <label for="search-inactive-ticket">Pesquisar Ticket:</label>
+                    <input type="search" name="search" id="search-inactive-ticket">
+                </form>
+                
+                <ul class="tickets" id="tickets-inativos-ul">
+
+                </ul>
             </section>
         </div>
     </div>
@@ -56,8 +61,13 @@
             <div class="qr-code-popup-body">
                 <video id="qrVideo"></video>
             </div>
+            <div class="qr-code-popup-button">
+                <button id="decline"><i class="fa-solid fa-xmark"></i></button>
+                <button id="approve"><i class="fa-solid fa-check"></i></b>
+            </div>
         </div>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/jsqr@1.4.0/dist/jsQR.js"></script>
     <script src="../js/main_page.js" type="module"></script>
 </body>
 </html>
