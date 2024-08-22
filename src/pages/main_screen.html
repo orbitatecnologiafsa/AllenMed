@@ -18,84 +18,94 @@
             </div>
         </div>
     </header>
-    <main>
-        <div class="container">
-            <div class="container-header">
-                <div class="icon" id="qr_section_btn">
-                    <i class="fa-solid fa-qrcode"></i>
-                    <span>Ler QR-Code</span>
-                </div>
-                <div class="icon" id="active_tickets_section_btn">
-                    <i class="fa-solid fa-ticket"></i>
-                    <span>Tickets Ativos</span>
-                </div>
-                <div class="icon" id="inactive_tickets_section_btn">
-                    <i class="fa-solid fa-clock"></i>
-                    <span>Tickets Inativos</span>
-                </div>
+    
+    <div class="container">
+        <div class="container-header">
+            <div class="icon active" id="active_tickets_section_btn">
+                <i class="fa-solid fa-ticket"></i>
+                <span>Tickets Ativos</span>
             </div>
-            <div class="container-body">
-                <section id="qr_code_section" class="content-section">
-                    <button id="qr_code_btn">Ler QR-Code</button>
-                    <video id="qr_video"></video>
-                    <button id="close_qr_btn">Fechar QR-Code</button>
-                </section>
-                <section id="active_tickets_section" class="content-section">
-                    <label for="search-active-ticket">Pesquisar Ticket:</label>
-                    <input type="search" name="search" id="search-active-ticket">
-                    <ul class="tickets">
-                        <li class="ticket">
-                            <div class="ticket-header">
-                                <span class="ticket-id">ID: 123456789</span>
-                                <span class="ticket-status">Status: Ativo</span>
-                            </div>
-                            <div class="ticket-body">
-                                <p>Nome do Paciente:<span class="ticket-description">Julho Cesar</span></p>
-                                <p>Nome do visitante:<span class="ticket-description">Carlos Alberto</span></p>
-                                <p>Quarto:<span class="ticket-description">Quarto 1</span></p>
-                            </div>
-                            <div class="ticket-footer">
-                                <span class="ticket-creation-date">Data de Criação: 01/01/2023</span>
-                            </div>
-                        </li>
-                        <li class="ticket">
-                            <div class="ticket-header">
-                                <span class="ticket-id">ID: 123456789</span>
-                                <span class="ticket-status">Status: Ativo</span>
-                            </div>
-                            <div class="ticket-body">
-                                <p>Nome do Paciente:<span class="ticket-description">Julho Cesar</span></p>
-                                <p>Nome do visitante:<span class="ticket-description">Carlos Alberto</span></p>
-                                <p>Quarto:<span class="ticket-description">Quarto 1</span></p>
-                            </div>
-                            <div class="ticket-footer">
-                                <span class="ticket-creation-date">Data de Criação: 01/01/2023</span>
-                            </div>
-                        </li>
-                        <li class="ticket">
-                            <div class="ticket-header">
-                                <span class="ticket-id">ID: 123456789</span>
-                                <span class="ticket-status">Status: Ativo</span>
-                            </div>
-                            <div class="ticket-body">
-                                <p>Nome do Paciente:<span class="ticket-description">Julho Cesar</span></p>
-                                <p>Nome do visitante:<span class="ticket-description">Carlos Alberto</span></p>
-                                <p>Quarto:<span class="ticket-description">Quarto 1</span></p>
-                            </div>
-                            <div class="ticket-footer">
-                                <span class="ticket-creation-date">Data de Criação: 01/01/2023</span>
-                            </div>
-                        </li>
-                    </ul>
-                </section>
-                <section id="inactive_tickets_section" class="content-section">
-                    <label for="search-inactive-ticket">Pesquisar Ticket:</label>
-                    <input type="search" name="search" id="search-inactive-ticket">
-                    <ul class="used-tickets"></ul>
-                </section>
+            <div class="icon" id="inactive_tickets_section_btn">
+                <i class="fa-solid fa-clock"></i>
+                <span>Tickets Inativos</span>
             </div>
         </div>
-    </main>
-    <script src="../js/main_page.js"></script>
+        <div class="container-body">
+            <section id="active_tickets_section" class="content-section">
+                <label for="search-active-ticket">Pesquisar Ticket:</label>
+                <input type="search" name="search" id="search-active-ticket">
+                <ul class="tickets">
+                    <li class="ticket">
+                        <div class="ticket-header">
+                            <span class="ticket-id">ID: 123456789</span>
+                            <span class="ticket-status">Status: Ativo</span>
+                        </div>
+                        <div class="ticket-body">
+                            <p>Nome do Paciente:<span class="ticket-description">Julho Cesar</span></p>
+                            <p>Nome do visitante:<span class="ticket-description">Carlos Alberto</span></p>
+                            <p>Quarto:<span class="ticket-description">Quarto 1</span></p>
+                            <p>Cpf do Paciente:<span class="ticket-description">123.456.789-00</span></p>
+                            <p>Cpf do Visitante:<span class="ticket-description">123.456.789-00</span></p>
+                        </div>
+                        <div class="ticket-footer">
+                            <button class="qr-code-button" id="qr-code-btn"><i class="fa-solid fa-qrcode"></i></button>
+                            <span class="ticket-creation-date">Data de Criação: 01/01/2023</span>
+                        </div>
+                    </li>
+                    <li class="ticket">
+                        <div class="ticket-header">
+                            <span class="ticket-id">ID: 123456789</span>
+                            <span class="ticket-status">Status: Ativo</span>
+                        </div>
+                        <div class="ticket-body">
+                            <p>Nome do Paciente:<span class="ticket-description">Julho Cesar</span></p>
+                            <p>Nome do visitante:<span class="ticket-description">Carlos Alberto</span></p>
+                            <p>Quarto:<span class="ticket-description">Quarto 1</span></p>
+                            <p>Cpf do Paciente:<span class="ticket-description">123.456.789-00</span></p>
+                            <p>Cpf do Visitante:<span class="ticket-description">123.456.789-00</span></p>
+                        </div>
+                        <div class="ticket-footer">
+                            <button class="qr-code-button" id="qr-code-btn"><i class="fa-solid fa-qrcode"></i></button>
+                            <span class="ticket-creation-date">Data de Criação: 01/01/2023</span>
+                        </div>
+                    </li>
+                    <li class="ticket">
+                        <div class="ticket-header">
+                            <span class="ticket-id">ID: 123456789</span>
+                            <span class="ticket-status">Status: Ativo</span>
+                        </div>
+                        <div class="ticket-body">
+                            <p>Nome do Paciente:<span class="ticket-description">Julho Cesar</span></p>
+                            <p>Nome do visitante:<span class="ticket-description">Carlos Alberto</span></p>
+                            <p>Quarto:<span class="ticket-description">Quarto 1</span></p>
+                            <p>Cpf do Paciente:<span class="ticket-description">123.456.789-00</span></p>
+                            <p>Cpf do Visitante:<span class="ticket-description">123.456.789-00</span></p>
+                        </div>
+                        <div class="ticket-footer">
+                            <button class="qr-code-button" id="qr-code-btn"><i class="fa-solid fa-qrcode"></i></button>
+                            <span class="ticket-creation-date">Data de Criação: 01/01/2023</span>
+                        </div>
+                    </li>
+                </ul>
+            </section>
+            <section id="inactive_tickets_section" class="content-section">
+                <label for="search-inactive-ticket">Pesquisar Ticket:</label>
+                <input type="search" name="search" id="search-inactive-ticket">
+                <ul class="used-tickets"></ul>
+            </section>
+        </div>
+    </div>
+    <div class="qr-code-popup">
+        <div class="qr-code-popup-content">
+            <div class="qr-code-popup-header">
+                <h2>QR Code</h2>
+                <i class="fa-solid fa-xmark" id="close-qr-code-popup"></i>
+            </div>
+            <div class="qr-code-popup-body">
+                <video id="qrVideo"></video>
+            </div>
+        </div>
+    </div>
+    <script src="../js/main_page.js" type="module"></script>
 </body>
 </html>
