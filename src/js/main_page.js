@@ -64,7 +64,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const start = value;
             const end = value + '\uf8ff';
 
-            const ticketSearched = await ticketActiveDb.where('codigo','>=',start).where('codigo','<=',end).get();
+            const ticketSearched = await ticketActiveDb.where('codigo','>=',start).where('codigo','<=',end).where('status', '==', 'Em andamento').get();
             if(ticketSearched.empty){
                 alert('Nenhum ticket encontrado!');
                 ticketsActiveNoFilter.forEach((ticket) => {
@@ -196,7 +196,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const start = value;
             const end = value + '\uf8ff';
 
-            const ticketSearched = await ticketInactiveDb.where('codigo','>=',start).where('codigo','<=',end).get();
+            const ticketSearched = await ticketInactiveDb.where('codigo','>=',start).where('codigo','<=',end).where('status','==','Finalizado').get();
             if(ticketSearched.empty){
                 alert('Nenhum ticket encontrado!');
                 ticketsInactiveNoFilter.forEach((ticket) => {
