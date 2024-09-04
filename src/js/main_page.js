@@ -1,4 +1,5 @@
 import { } from './firebase/firebase_config.js';
+import { mostrarNotificacao, confirmNotificacao } from './alert.js'
 
 document.addEventListener('DOMContentLoaded', function() {
     const activeTicketsSectionBtn = document.getElementById('active_tickets_section_btn');
@@ -66,7 +67,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
             const ticketSearched = await ticketActiveDb.where('codigo','>=',start).where('codigo','<=',end).where('status', '==', 'Em andamento').get();
             if(ticketSearched.empty){
-                alert('Nenhum ticket encontrado!');
+                mostrarNotificacao('error','Nenhum ticket foi encontrado com esse ID. Tente novamente!','Nenhum ticket encontrado!');
                 ticketsActiveNoFilter.forEach((ticket) => {
                     fillActiveTickets(ticket);
                 });
@@ -311,7 +312,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const popup = document.querySelector('.qr-code-popup');
         popup.style.display = 'block';
     
-        const qrVideo = document.querySelector('#qrVideo'); // Assumindo que você tem um elemento <video> com id 'qrVideo'
+        const qrVideo = document.querySelector('#qrVideo'); 
         const canvasElement = document.createElement('canvas');
         const canvas = canvasElement.getContext('2d');
     
@@ -321,8 +322,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 qrVideo.srcObject = stream;
                 qrVideo.play();
     
-                // Inicia a leitura do QR code
-                const interval = setInterval(() => {
+                const interval = setInterval(async () => {
                     canvasElement.width = qrVideo.videoWidth;
                     canvasElement.height = qrVideo.videoHeight;
                     canvas.drawImage(qrVideo, 0, 0, canvasElement.width, canvasElement.height);
@@ -333,46 +333,44 @@ document.addEventListener('DOMContentLoaded', function() {
                     if (qrCode) {
                         console.log("QR Code detectado: ", qrCode.data);
     
-                        // Aqui você pode parar o vídeo e fazer algo com o QR code, como validar o ticket
                         clearInterval(interval);
                         qrVideo.srcObject.getTracks().forEach(track => track.stop());
     
-                        // validação do ticket aqui usando qrCode.data
                         if(ticket.data().codigo != qrCode.data){
-                            alert("Esse QrCode é inválido");
+                            mostrarNotificacao("error","QrCode inválido","Esse QrCode é inválido, tente novamente");
                             popup.style.display = 'none';
                         }
                         else if(ticket.data().codigo == qrCode.data && ticket.data().status == 'Finalizado'){
-                            alert('Esse QrCode já foi finalizado.');
+                            mostrarNotificacao('error','QrCode finalizado','Esse QrCode já foi finalizado.');
                             popup.style.display = 'none';
                         }
                         else{
-                            alert("Esse QrCode é valido");
-                            const div_button = document.querySelector('.qr-code-popup-button');
-                            div_button.style.display = 'flex';
-
-                            const decline_btn = document.querySelector('#decline');
-                            decline_btn.addEventListener('click',() => {
-                                popup.style.display = 'none';
-                            });
-
-                            const approve_btn = document.querySelector('#approve');
-                            approve_btn.addEventListener('click',() => {
+                            const confirm =  await confirmNotificacao(
+                                'Esse QrCode é valido. Deseja dar baixa?',
+                                'Baixa de QrCode',
+                                'A entrada do visitante foi liberada',
+                                'A entrada do visitante foi rejeitada',
+                            )
+                            if(confirm){
                                 approveTicket(ticket);
-                            })
+                            }else{
+                                const popup = document.querySelector('.qr-code-popup');
+                                popup.style.display = 'none';
+                            }
                         }
                     }
-                }, 100); // Tenta decodificar o QR code a cada 100ms
+                }, 100);
             })
             .catch((err) => {
                 console.error("Erro ao acessar a câmera: ", err);
             });
     }
-    
+
     async function approveTicket(ticket) {
 
         const ticketDb = firebase.firestore().collection('tickets');
-    
+        const popup = document.querySelector('.qr-code-popup');
+        popup.style.display = 'none';
         try {
             const ticketDoc = await ticketDb.doc(ticket.id).get();
             
@@ -385,8 +383,7 @@ document.addEventListener('DOMContentLoaded', function() {
         } catch (error) {
             console.error("Erro ao atualizar o ticket: ", error);
         }
-        const popup = document.querySelector('.qr-code-popup');
-        popup.style.display = 'none';
+        
     }
     firebase.firestore().collection('tickets').onSnapshot((ticket) => {
         ticket.docChanges().forEach((change) => {
